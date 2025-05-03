@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="5;url={{ url_for('execute_script') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>QR Code</title>
+</head>
+<body>
+<div class="container">
+    <h2>Scan to Pay</h2>
+    <p>This screen will proceed automatically after 5 seconds.</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=SamplePaymentLink" alt="QR Code">
+    <a href="{{ url_for('abort') }}" class="button"><button>Abort</button></a>
+</div>
+</body>
+</html>

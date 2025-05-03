@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Result</title>
+</head>
+<body>
+<div class="container">
+    <h2>Payment Details</h2>
+    <p>Selected Amount: ₱{{ amount }}</p>
+    <p>Service Charge: ₱{{ charge }}</p>
+    <p><strong>Total to Pay: ₱{{ total }}</strong></p>
+    <a href="{{ url_for('qrcode') }}" class="button"><button>Proceed to Payment</button></a>
+    <a href="{{ url_for('abort') }}" class="button"><button>Abort</button></a>
+</div>
+</body>
+</html>
