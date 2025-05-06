@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
 import subprocess
-import time
 
 app = Flask(__name__)
 
@@ -24,9 +23,12 @@ def result():
     total = amount + charge
     return render_template("result.html", amount=amount, charge=charge, total=total)
 
-@app.route("/qrcode")
+@app.route("/qrcode", methods=["POST"])
 def qrcode():
-    return render_template("qrcode.html")
+    global last_amount
+    qr_filename = f"qrcode_{last_amount}.png"
+    return render_template("qrcode.html", qr_filename=qr_filename)
+
 
 @app.route("/execute")
 def execute_script():
