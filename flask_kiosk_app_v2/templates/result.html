@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Summary</title>
+    <title>Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h2>Payment Summary</h2>
-        <p>Amount: ₱{{ amount }}</p>
-        <p>Service Fee: ₱{{ charge }}</p>
+        <h2>Transaction Summary</h2>
+        <p>Amount Selected: ₱{{ amount }}</p>
+        <p>Service Charge: ₱{{ charge }}</p>
         <p><strong>Total: ₱{{ total }}</strong></p>
 
-        <!-- Corrected form using POST method -->
-        <form method="POST" action="/qrcode">
-            <button type="submit">Proceed</button>
+        {% if low_warning %}
+            <div class="warning">
+                {{ low_warning }}
+            </div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('qrcode') }}">
+            <button type="submit">Proceed to QR Code</button>
         </form>
 
-        <form action="/abort">
+        <form action="/">
             <button type="submit" style="background-color: #f44336;">Abort</button>
         </form>
     </div>

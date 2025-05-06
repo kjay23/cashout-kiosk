@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>No Coins</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>⚠️ No Coins Available</h2>
+        <p>The remaining coins are too low to process more transactions.</p>
+        <p>Please refill the dispenser.</p>
+        <form action="/">
+            <button type="submit">Return to Welcome</button>
+        </form>
+    </div>
+</body>
+</html>

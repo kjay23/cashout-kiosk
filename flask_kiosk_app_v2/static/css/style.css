@@ -7,12 +7,15 @@ body {
 }
 
 .container {
+    width: 90%;
+    max-width: 700px;
+    margin: auto;
+    padding: 15px;
     text-align: center;
-    padding: 2rem;
 }
 
 h1, h2, h3 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 1rem;
 }
 
@@ -22,10 +25,12 @@ p {
 }
 
 .button, button {
-    display: inline-block;
+    display: block;
+    width: 100%;
+    max-width: 320px;
     font-size: 2rem;
-    padding: 1rem 2.5rem;
-    margin: 1rem;
+    padding: 1.2rem 2rem;
+    margin: 1rem auto;
     background-color: #6200ea;
     color: white;
     border: none;
@@ -40,12 +45,26 @@ p {
 }
 
 img {
-    width: 60%;
-    max-width: 300px;
+    width: 100%;
+    max-width: 280px;
     height: auto;
     margin-top: 1rem;
 }
 
-form {
-    margin-top: 2rem;
+.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 10px;
+    margin-top: 15px;
+    border: 1px solid #ffeeba;
+    border-radius: 5px;
+    font-weight: bold;
 }
+
+.qrcode-container img {
+    max-width: 280px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+}
+
