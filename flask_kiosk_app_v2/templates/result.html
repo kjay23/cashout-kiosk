@@ -1,28 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Result</title>
+    <title>Transaction Summary</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .summary {
+            text-align: left;
+            max-width: 980px;
+            margin: 0 auto 100px auto; /* center horizontally and leave space below */
+        }
+
+        .bottom-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        .bottom-buttons form {
+            flex: 0 0 auto;
+            width: 140px;
+        }
+
+        .bottom-buttons button {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h2>Transaction Summary</h2>
-        <p>Amount Selected: ₱{{ amount }}</p>
-        <p>Service Charge: ₱{{ charge }}</p>
-        <p><strong>Total: ₱{{ total }}</strong></p>
+        <div class="summary">
+        <br>
+            <p><b>Amount:</b> ₱{{ amount }} </p>
+            <br>
+            <p>Service Charge: ₱{{ charge }} </p>
+            <br>
+            <p><strong>Total: <b>₱{{ total }} </b></strong></p>
+            <br>
+            <p>Please scan the QR Code on your GCash app.</p>
+            <p>Tap <b>Next</b> button to continue.</p>
 
-        {% if low_warning %}
-            <div class="warning">
-                {{ low_warning }}
-            </div>
-        {% endif %}
+            {% if low_warning %}
+                <div class="warning">{{ low_warning }}</div>
+            {% endif %}
+        </div>
+    </div>
 
-        <form method="POST" action="{{ url_for('qrcode') }}">
-            <button type="submit">Proceed to QR Code</button>
+    <div class="bottom-buttons">
+        <form action="{{ url_for('abort') }}">
+            <button type="submit">Abort</button>
         </form>
-
-        <form action="/">
-            <button type="submit" style="background-color: #f44336;">Abort</button>
+        <form action="{{ url_for('qrcode') }}" method="post">
+            <button type="submit">Next</button>
         </form>
     </div>
 </body>

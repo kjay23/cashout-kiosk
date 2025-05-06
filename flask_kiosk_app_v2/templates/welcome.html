@@ -3,13 +3,35 @@
 <head>
     <title>Welcome</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .bottom-center {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 300px;
+        }
+    </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>Welcome to Cash-Out Kiosk</h1>
-        <p>In partial fulfillment of our Capstone Project</p>
-        <form action="/select">
-            <button type="submit">Start</button>
+    <br>
+    <br>
+    <br>
+    <br>
+        <h1>E-Wallet Cashout Kiosk</h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>Disclaimer: This machine does not accept cash-in transactions.<br><br>Press next to continue</p>
+    </div>
+
+    <div class="bottom-center">
+        <form action="{{ url_for('select') }}" method="get">
+            <button type="submit">Next</button>
         </form>
     </div>
 </body>
