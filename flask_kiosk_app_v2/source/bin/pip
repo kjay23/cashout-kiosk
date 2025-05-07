@@ -1,4 +1,4 @@
-#!/home/jay/workplace/cashout-kiosk/flask_kiosk_app_v2/source/bin/python3
+#!/home/jay/cashout-kiosk/flask_kiosk_app_v2/source/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

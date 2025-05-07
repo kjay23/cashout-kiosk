@@ -2,7 +2,13 @@
 <html>
 <head>
     <title>Transaction Summary</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/typography.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/qrcode.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/warning.css') }}">
     <style>
         .summary {
             text-align: left;
@@ -32,6 +38,7 @@
     </style>
 </head>
 <body>
+<div class="overlay">
     <div class="container">
         <h2>Transaction Summary</h2>
         <div class="summary">
@@ -42,8 +49,7 @@
             <br>
             <p><strong>Total: <b>₱{{ total }} </b></strong></p>
             <br>
-            <p>Please scan the QR Code on your GCash app.</p>
-            <p>Tap <b>Next</b> button to continue.</p>
+            <p>Please scan the QR Code using your GCash app.</p>
 
             {% if low_warning %}
                 <div class="warning">{{ low_warning }}</div>
@@ -60,4 +66,7 @@
         </form>
     </div>
 </body>
+
+
+
 </html>

@@ -2,7 +2,13 @@
 <html>
 <head>
     <title>Select Amount</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/typography.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/qrcode.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/warning.css') }}">
     <style>
         .amount-buttons {
             display: flex;
@@ -38,6 +44,7 @@
     </style>
 </head>
 <body>
+<div class="overlay">
     <div class="container">
         <h2>Select Cash-Out Amount</h2>
         <form method="POST" action="/result" class="amount-buttons">
@@ -54,4 +61,9 @@
         <div style="flex: 1;"></div>
     </div>
 </body>
+
+
+
+
+
 </html>

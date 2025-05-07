@@ -22,7 +22,6 @@ formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
-
 def get_last_remaining_coins():
     try:
         with open(log_file, "r") as f:
@@ -35,13 +34,11 @@ def get_last_remaining_coins():
         print(f"Error reading log: {e}")
     return MAX_COINS
 
-
 def log_to_journal(message):
     try:
         subprocess.run(['logger', '-t', log_tag, message], check=True)
     except Exception as e:
         print(f"systemd journal logging failed: {e}")
-
 
 @app.route("/")
 def welcome():
@@ -50,14 +47,12 @@ def welcome():
         return render_template("no_coins.html")
     return render_template("welcome.html")
 
-
 @app.route("/select")
 def select():
     remaining = get_last_remaining_coins()
     if remaining <= 100:
         return render_template("no_coins.html")
     return render_template("select.html")
-
 
 @app.route("/result", methods=["POST"])
 def result():
@@ -71,7 +66,6 @@ def result():
     total = amount + charge
 
     return render_template("result.html", amount=amount, charge=charge, total=total)
-
 
 @app.route("/qrcode", methods=["POST"])
 def qrcode():
@@ -98,7 +92,6 @@ def qrcode():
     qr_filename = f"qrcode_{amount}.png"
     return render_template("qrcode.html", qr_filename=qr_filename)
 
-
 @app.route("/execute")
 def execute_script():
     global last_amount
@@ -108,13 +101,11 @@ def execute_script():
     except Exception as e:
         logger.error(f"Error executing script: {e}")
         log_to_journal(f"Script execution error: {e}")
-    return redirect(url_for("welcome"))
-
+    return redirect(url_for("payment_success"))
 
 @app.route("/abort")
 def abort():
     return redirect(url_for("welcome"))
-
 
 @app.route("/admin/reset")
 def admin_reset():
@@ -125,6 +116,9 @@ def admin_reset():
     log_to_journal(msg)
     return redirect(url_for("welcome"))
 
+@app.route("/payment-success")
+def payment_success():
+    return render_template("payment_success.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

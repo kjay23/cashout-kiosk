@@ -2,7 +2,13 @@
 <html>
 <head>
     <title>QR Code</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/typography.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/qrcode.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/warning.css') }}">
     <meta http-equiv="refresh" content="5;url={{ url_for('execute_script') }}">
     <style>
         .qrcode-container img {
@@ -16,6 +22,7 @@
     </style>
 </head>
 <body>
+<div class="overlay">
     <div class="container">
         <h2>Scan to Pay</h2>
 
@@ -25,9 +32,12 @@
 
         <p>Waiting for payment...</p>
 
-        <form action="/">
+        <form action="/payment_success">
             <button type="submit" style="background-color: #f44336;">Abort</button>
         </form>
     </div>
 </body>
+
+
+
 </html>
