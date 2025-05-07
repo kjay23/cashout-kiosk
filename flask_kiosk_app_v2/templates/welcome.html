@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/typography.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/qrcode.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/warning.css') }}">
+
+    <style>
+        .bottom-center {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+    <div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+        <h1>E-Wallet Cashout Kiosk</h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>Note: This machine does not accept cash-in transactions.<br><br>Tap OK to continue.</p>
+    </div>
+
+    <div class="bottom-center">
+        <form action="{{ url_for('select') }}" method="get">
+            <button type="submit">OK</button>
+        </form>
+    </div>
+</body>
+
+
+</html>
