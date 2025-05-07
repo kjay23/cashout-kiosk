@@ -2,18 +2,39 @@
 <html>
 <head>
     <title>Transaction Summary</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/typography.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/qrcode.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/warning.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/typography.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/qrcode.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/warning.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
     <style>
+        .summary-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 980px;
+            margin: 0 auto 100px auto;
+        }
+
         .summary {
             text-align: left;
-            max-width: 980px;
-            margin: 0 auto 100px auto; /* center horizontally and leave space below */
+            flex: 1 1 300px;
+        }
+
+        .animated-image {
+            flex: 1 1 300px;
+            text-align: right;
+        }
+
+        .animated-image img {
+            max-width: 200px;
+            height: auto;
         }
 
         .bottom-buttons {
@@ -39,21 +60,27 @@
 </head>
 <body>
 <div class="overlay">
+    <div class="top-bar">Transaction Details</div>
     <div class="container">
-        <h2>Transaction Summary</h2>
-        <div class="summary">
         <br>
-            <p><b>Amount:</b> ₱{{ amount }} </p>
-            <br>
-            <p>Service Charge: ₱{{ charge }} </p>
-            <br>
-            <p><strong>Total: <b>₱{{ total }} </b></strong></p>
-            <br>
-            <p>Please scan the QR Code using your GCash app.</p>
+        <div class="summary-container">
+            <div class="summary">
+                <br>
+                <p><b>Amount:</b> ₱{{ amount }} </p>
+                <br>
+                <p><b>Service Charge: ₱{{ charge }} </b></p>
+                <br>
+                <p><strong>Total: <b>₱{{ total }} </b></strong></p>
+                <br>
+                <p>Please scan the QR Code using your GCash app.</p>
 
-            {% if low_warning %}
-                <div class="warning">{{ low_warning }}</div>
-            {% endif %}
+                {% if low_warning %}
+                    <div class="warning">{{ low_warning }}</div>
+                {% endif %}
+            </div>
+            <div class="animated-image">
+                <img src="{{ url_for('static', filename='images/scan-qr-code.apng') }}" alt="Animated Payment">
+            </div>
         </div>
     </div>
 
@@ -66,7 +93,10 @@
         </form>
     </div>
 </body>
-
-
+<script>
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+</script>
 
 </html>

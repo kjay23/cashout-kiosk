@@ -2,13 +2,15 @@
 <html>
 <head>
     <title>Select Amount</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/typography.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/qrcode.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/warning.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
     <style>
         .amount-buttons {
             display: flex;
@@ -45,8 +47,12 @@
 </head>
 <body>
 <div class="overlay">
+    <div class="top-bar">Select Cash-Out Amount</div>
     <div class="container">
-        <h2>Select Cash-Out Amount</h2>
+        <h2>
+<br>
+</h2>
+
         <form method="POST" action="/result" class="amount-buttons">
             {% for amt in [20, 40, 60, 80, 100] %}
                 <button type="submit" name="amount" value="{{ amt }}">₱{{ amt }}</button>
@@ -61,8 +67,11 @@
         <div style="flex: 1;"></div>
     </div>
 </body>
-
-
+<script>
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+</script>
 
 
 
