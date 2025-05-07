@@ -1,0 +1,15 @@
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: auto;
+    padding: 15px;
+    text-align: center;
+    flex: 1;
+}
+
+.overlay {
+    background-color: rgba(255, 255, 255, 0.60);
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+}

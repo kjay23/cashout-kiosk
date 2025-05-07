@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Success</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/typography.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/qrcode.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/warning.css') }}">
+<meta http-equiv="refresh" content="5;url={{ url_for('welcome') }}">
+    <style>
+        .checkmark-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #4CAF50;
+            position: relative;
+            margin: 2rem auto;
+        }
+
+        .checkmark {
+            display: block;
+            width: 30px;
+            height: 60px;
+            border-width: 0 5px 5px 0;
+            border-style: solid;
+            border-color: white;
+            transform: rotate(45deg);
+            position: absolute;
+            top: 15px;
+            left: 32px;
+        }
+
+        .success-message {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+        <div class="checkmark-circle">
+            <div class="checkmark"></div>
+        </div>
+        <div class="success-message">
+            Payment Successful!<br>Returning to Home...
+        </div>
+    </div>
+</body>
+</html>
