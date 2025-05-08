@@ -76,26 +76,30 @@ def qrcode():
         return render_template("no_coins.html")
 
     amount = last_amount
-    charge = charges.get(amount, 0)
-    total = amount + charge
-
-    remaining_coins -= amount
-    log_message = f"Amount: {amount}, Charge: {charge}, Total: {total}, Remaining: {remaining_coins}"
-    logger.info(log_message)
-    log_to_journal(log_message)
-
-    if remaining_coins <= 100:
-        warning_msg = f"Low Coin Warning: Only {remaining_coins} coins left."
-        logger.error(warning_msg)
-        log_to_journal(warning_msg)
-
     qr_filename = f"qrcode_{amount}.png"
     return render_template("qrcode.html", qr_filename=qr_filename)
 
 @app.route("/execute")
 def execute_script():
-    global last_amount
-    script_path = f"./arduino_scripts/trigger_{last_amount}.sh"
+    global last_amount, remaining_coins
+
+    remaining_coins = get_last_remaining_coins()
+    amount = last_amount
+    charge = charges.get(amount, 0)
+    total = amount + charge
+    remaining_coins -= amount
+
+    log_message = f"Amount: {amount}, Charge: {charge}, Total: {total}, Remaining: {remaining_coins}"
+    logger.info(log_message)
+    log_to_journal(log_message)
+
+    if remaining_coins <= 100:
+        warning_msg = f"Low Coin Warning: Only {remaining_coins} or below coins left."
+        logger.error(warning_msg)
+        log_to_journal(warning_msg)
+        send_kdeconnect_notification(warning_msg)
+
+    script_path = f"./arduino_scripts/trigger_{amount}.sh"
     try:
         subprocess.Popen(["bash", script_path])
     except Exception as e:
@@ -105,6 +109,7 @@ def execute_script():
 
 @app.route("/abort")
 def abort():
+    # Abort now avoids logging or reducing coins
     return redirect(url_for("welcome"))
 
 @app.route("/admin/reset")
@@ -120,5 +125,15 @@ def admin_reset():
 def payment_success():
     return render_template("payment_success.html")
 
+
+def send_kdeconnect_notification(message):
+    try:
+        device_id = "d4e13bfa122d4589b40958618586fca1"
+        subprocess.run(["kdeconnect-cli", "--device", device_id, "--ping-msg", message], check=True)
+    except Exception as e:
+        print(f"KDE Connect notification failed: {e}")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
+

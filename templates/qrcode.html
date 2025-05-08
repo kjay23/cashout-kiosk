@@ -32,12 +32,16 @@
 
         <p>Waiting for payment...</p>
 
-        <form action="/">
+        <form action="{{ url_for('abort') }}">
             <button type="submit" style="background-color: #f44336;">Abort</button>
         </form>
     </div>
 </body>
 
-
+<script>
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+</script>
 
 </html>

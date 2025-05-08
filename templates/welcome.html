@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/qrcode.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/warning.css') }}">
-
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">	
     <style>
         .bottom-center {
             position: fixed;
@@ -23,12 +23,11 @@
 </head>
 <body>
     <div class="overlay">
+        <div class="top-bar">E-Wallet Cashout Kiosk</div>
     <div class="container">
     <br>
     <br>
     <br>
-    <br>
-        <h1>E-Wallet Cashout Kiosk</h1>
         <br>
         <br>
         <br>
@@ -43,5 +42,10 @@
     </div>
 </body>
 
+<script>
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+</script>
 
 </html>
