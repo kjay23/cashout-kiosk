@@ -44,13 +44,13 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: 0 40px;
+            padding: 0 20px;
             box-sizing: border-box;
         }
 
         .bottom-buttons form {
             flex: 0 0 auto;
-            width: 140px;
+            width: 430px;
         }
 
         .bottom-buttons button {
@@ -66,7 +66,7 @@
         <div class="summary-container">
             <div class="summary">
                 <br>
-                <p><b>Amount:</b> ₱{{ amount }} </p>
+                <p><b>Amount: ₱{{ amount }} </b> </p>
                 <br>
                 <p><b>Service Charge: ₱{{ charge }} </b></p>
                 <br>
@@ -89,8 +89,8 @@
     </div>
 
     <div class="bottom-buttons">
-        <form action="{{ url_for('abort') }}">
-            <button type="submit">Abort</button>
+        <form action="/select">
+            <button type="submit">Return</button>
         </form>
         <form action="{{ url_for('qrcode') }}" method="post">
             <button type="submit">Next</button>
