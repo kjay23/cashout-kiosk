@@ -60,7 +60,7 @@
 </head>
 <body>
 <div class="overlay">
-    <div class="top-bar">Transaction Details</div>
+    <div class="top-bar">TRANSACTION DETAILS</div>
     <div class="container">
         <br>
         <div class="summary-container">
@@ -79,7 +79,11 @@
                 {% endif %}
             </div>
             <div class="animated-image">
+				<br>
+				<br>
+				<img src="{{ url_for('static', filename='images/gcash-logo.png') }}" alt="GCash Logo">
                 <img src="{{ url_for('static', filename='images/scan-qr-code.apng') }}" alt="Animated Payment">
+
             </div>
         </div>
     </div>
