@@ -1,0 +1,32 @@
+2025-05-07 11:36:30,551 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 900
+2025-05-07 12:00:07,676 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 800
+2025-05-07 12:00:18,163 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 700
+2025-05-07 12:00:37,916 - INFO - Amount: 80, Charge: 8, Total: 88, Remaining: 620
+2025-05-07 12:00:43,396 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 520
+2025-05-07 12:01:12,683 - INFO - Amount: 80, Charge: 8, Total: 88, Remaining: 440
+2025-05-07 12:01:42,019 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 340
+2025-05-07 12:03:05,008 - INFO - Amount: 20, Charge: 2, Total: 22, Remaining: 320
+2025-05-07 12:03:22,513 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 220
+2025-05-07 12:03:42,404 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 120
+2025-05-07 12:03:48,553 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 20
+2025-05-07 12:03:48,558 - ERROR - Low Coin Warning: Only 20 coins left.
+2025-05-07 12:04:01 - INFO - ADMIN: Coin count reset to MAX. Remaining: 1000
+2025-05-07 12:04:25,678 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 900
+2025-05-07 12:11:03,136 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 800
+2025-05-07 13:33:16,515 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 700
+2025-05-07 13:45:51,971 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 600
+2025-05-07 13:46:46,839 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 500
+2025-05-07 13:47:16,441 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 400
+2025-05-07 13:53:21,411 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 300
+2025-05-07 13:54:16,723 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 200
+2025-05-07 13:55:22,091 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 100
+2025-05-07 13:55:22,154 - ERROR - Low Coin Warning: Only 100 coins left.
+2025-05-07 13:56:07 - INFO - ADMIN: Coin count reset to MAX. Remaining: 1000
+2025-05-07 13:56:14,135 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 900
+2025-05-07 13:56:44,042 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 800
+2025-05-07 13:59:02,551 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 700
+2025-05-07 14:15:41,985 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 600
+2025-05-07 16:30:26,063 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 500
+2025-05-07 16:32:07,478 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 400
+2025-05-07 18:54:10,865 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 300
+2025-05-07 20:29:40,391 - INFO - Amount: 100, Charge: 10, Total: 110, Remaining: 200
