@@ -6,6 +6,7 @@ from datetime import datetime
 import os
 
 app = Flask(__name__)
+payment_received = False  # add this near the top
 
 charges = {20: 2, 40: 4, 60: 6, 80: 8, 100: 10}
 MAX_COINS = 1000
@@ -94,14 +95,25 @@ def qrcode():
 
 @app.route("/execute")
 def execute_script():
-    global last_amount
+    global last_amount, payment_received
     script_path = f"./arduino_scripts/trigger_{last_amount}.sh"
     try:
         subprocess.Popen(["bash", script_path])
+        payment_received = True
+        print("[DEBUG] payment_received set to True")
     except Exception as e:
         logger.error(f"Error executing script: {e}")
         log_to_journal(f"Script execution error: {e}")
-    return redirect(url_for("payment_success"))
+    return "", 204
+
+@app.route("/payment-status")
+def payment_status():
+    global payment_received
+    if payment_received:
+        payment_received = False  # reset for next transaction
+        return {"status": "paid"}
+    return {"status": "waiting"}
+
 
 @app.route("/abort")
 def abort():
